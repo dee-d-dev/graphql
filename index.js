@@ -1,10 +1,20 @@
 const { ApolloServer, gql } = require("apollo-server");
 
-const typeDefs = gql` 
-
+const typeDefs = gql`
+  type Query {
+    hello: String
+  }
 `;
 
-const server = new ApolloServer({ }).
+const resolvers = {
+  Query: {
+    hello: () => {
+      return "Hello World";
+    },
+  },
+};
+
+const server = new ApolloServer({ typeDefs, resolvers });
 
 server.listen(3000, () => {
   console.log("server is running");
