@@ -1,26 +1,5 @@
 const { ApolloServer, gql } = require("apollo-server");
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-    numberOfAnimals: Int
-    price: Float
-    isExpensive: Boolean
-    Shoes: [String]
-    products: [Product!]!
-    product(id: String): Product
-  }
-  type Product {
-    id: String
-    name: String!
-    description: String!
-    quantity: Int!
-    price: Float!
-    image: String!
-    onSale: Boolean!
-  }
-`;
-
 const items = [
   {
     id: "53a0724c-a416-4cac-ae45-bfaedce1f147",
@@ -105,6 +84,26 @@ const items = [
   },
 ];
 
+const typeDefs = gql`
+  type Query {
+    hello: String
+    numberOfAnimals: Int
+    price: Float
+    isExpensive: Boolean
+    Shoes: [String]
+    products: [Product!]!
+    product(id: ID!): Product
+  }
+  type Product {
+    name: String!
+    description: String!
+    quantity: Int!
+    price: Float!
+    image: String!
+    onSale: Boolean!
+  }
+`;
+
 const resolvers = {
   Query: {
     hello: () => {
@@ -117,7 +116,7 @@ const resolvers = {
       const product_id = args.id;
 
       const searched_product = items.find((product) => {
-        product.id == product_id;
+        product.id === product_id;
       });
 
       if (!searched_product) return null;
