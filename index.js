@@ -74,6 +74,7 @@ const items = [
     onSale: true,
   },
   {
+    // 47bf3941-9c8b-42c0-9c72-7f3985492a5b
     id: "47bf3941-9c8b-42c0-9c72-7f3985492a5b",
     name: "Soccer Ball",
     description: "Round ball",
@@ -114,10 +115,11 @@ const resolvers = {
       return items;
     },
     product: (parent, args, ctx) => {
-      const product_id = args.id;
+      const productId = args.id;
+      console.log(parent, args, ctx);
 
       const find_product = items.find((product) => {
-        product.id === product_id;
+        return product.id === productId;
       });
       if (!find_product) return null;
 
