@@ -6,6 +6,7 @@ const typeDefs = gql`
     numberOfAnimals: Int
     price: Float
     isExpensive: Boolean
+    Shoes: [String]
   }
 `;
 
@@ -23,6 +24,9 @@ const resolvers = {
     isExpensive: () => {
       return true;
     },
+    Shoes: () => {
+        return ['Zanotti', "Air Force", " Air Jordans Dunk lows"]
+    }
   },
 };
 
