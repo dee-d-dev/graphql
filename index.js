@@ -95,6 +95,7 @@ const typeDefs = gql`
     product(id: ID!): Product
   }
   type Product {
+    id: ID!
     name: String!
     description: String!
     quantity: Int!
@@ -115,12 +116,12 @@ const resolvers = {
     product: (parent, args, ctx) => {
       const product_id = args.id;
 
-      const searched_product = items.find((product) => {
+      const find_product = items.find((product) => {
         product.id === product_id;
       });
+      if (!find_product) return null;
 
-      if (!searched_product) return null;
-      return searched_product;
+      return find_product;
     },
   },
 };
