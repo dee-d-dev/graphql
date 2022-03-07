@@ -92,12 +92,14 @@ const typeDefs = gql`
     isExpensive: Boolean
     Shoes: [String]
     products: [Product!]!
+    product(id: ID): Product
   }
   type Product {
     name: String!
     description: String!
     quantity: Int!
     price: Float!
+    image: String!
     onSale: Boolean!
   }
 `;
@@ -107,20 +109,16 @@ const resolvers = {
     hello: () => {
       return "Hello World";
     },
-    numberOfAnimals: () => {
-      return 4;
-    },
-    price: () => {
-      return 44.6;
-    },
-    isExpensive: () => {
-      return true;
-    },
-    Shoes: () => {
-      return ["Zanotti", "Air Force", " Air Jordans Dunk lows"];
-    },
     products: () => {
       return products;
+    },
+    product: (parent, args, ctx) => {
+      const productId = args.id;
+      const searched_product = products.find((product) => {
+        product.id ===  productId;
+      });
+      if (!searched_product) return null;
+      return searched_product;
     },
   },
 };
