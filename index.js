@@ -129,6 +129,7 @@ const typeDefs = gql`
     price: Float!
     image: String!
     onSale: Boolean!
+    category: Category
   }
 
   type Category {
@@ -179,6 +180,12 @@ const resolvers = {
 
       return queery;
     },
+    product,
+  },
+  Product: {
+    category: (parent, args, ctx) => {
+      
+    }
   },
 };
 
