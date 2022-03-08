@@ -172,20 +172,17 @@ const resolvers = {
   },
   Category: {
     products: (parent, args, ctx) => {
-      const queery = items.filter((item) => {
+      const find_product = items.filter((item) => {
         return item.category_id === parent.id;
       });
 
-      if (!queery) return null;
+      if (!find_product) return null;
 
-      return queery;
+      return find_product;
     },
-    product,
   },
   Product: {
-    category: (parent, args, ctx) => {
-      
-    }
+    category: (parent, args, ctx) => {},
   },
 };
 
