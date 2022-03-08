@@ -8,6 +8,7 @@ const { typeDefs } = require("./schema");
 const server = new ApolloServer({
   typeDefs,
   resolvers: { Category, Product, Query },
+  context: {items, categories}
 });
 
 server.listen().then(({ url }) => {
