@@ -80,7 +80,6 @@ const items = [
     category_id: "d914aec0-25b2-4103-9ed8-225d39018d1d",
   },
   {
-    // 47bf3941-9c8b-42c0-9c72-7f3985492a5b
     id: "47bf3941-9c8b-42c0-9c72-7f3985492a5b",
     name: "Soccer Ball",
     description: "Round ball",

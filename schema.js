@@ -21,8 +21,7 @@ exports.typeDefs = gql`
     onSale: Boolean!
     category: Category
     category_id: ID!
-    reviews: [Review]
-    review: Review
+    reviews: [Review!]!
   }
 
   type Category {
@@ -37,6 +36,6 @@ exports.typeDefs = gql`
     title: String!
     comment: String!
     rating: Int!
-    # productId: ID,
+    productId: ID,
   }
 `;

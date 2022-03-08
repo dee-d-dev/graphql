@@ -8,7 +8,11 @@ exports.Product = {
 
     return found;
   },
-  reviews: (parent, args, { reviews }) => {
-    return reviews;
+  reviews: ({ id }, args, { reviews }) => {
+    const found_reviews = reviews.filter((review) => {
+      return review.productId === id;
+    });
+
+    return found_reviews;
   },
 };
