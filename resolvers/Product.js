@@ -8,4 +8,7 @@ exports.Product = {
 
     return found;
   },
+  reviews: (parent, args, { reviews }) => {
+    return reviews;
+  },
 };
