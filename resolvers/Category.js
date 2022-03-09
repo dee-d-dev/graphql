@@ -1,11 +1,17 @@
 exports.Category = {
-  products: ({ id: categoryId }, args, { items }) => {
-    const find_product = items.filter((item) => {
+  products: ({ id: categoryId }, { filter }, { items }) => {
+    const find_category_product = items.filter((item) => {
       return item.category_id === categoryId;
     });
 
-    if (!find_product) return null;
+    if (filter) {
+      if (filter.onSale === true) {
+        find_category_product = find_category_product.filter((item) => {
+          return item.onSale;
+        });
+      }
+    }
 
-    return find_product;
+    return find_category_product;
   },
 };

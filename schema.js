@@ -1,4 +1,5 @@
 const { gql } = require("apollo-server");
+
 exports.typeDefs = gql`
   type Query {
     hello: String
@@ -33,9 +34,13 @@ exports.typeDefs = gql`
   type Review {
     id: ID!
     date: String!
-    title: String!
+    title: Stri ng!
     comment: String!
     rating: Int!
     productId: ID,
+  }
+
+  input ProductsFilterInput {
+    onSale: Boolean 
   }
 `;
