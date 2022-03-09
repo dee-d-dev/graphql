@@ -37,10 +37,10 @@ exports.typeDefs = gql`
     title: String!
     comment: String!
     rating: Int!
-    productId: ID,
+    productId: ID
   }
 
   input ProductsFilterInput {
-    onSale: Boolean 
+    onSale: Boolean
   }
 `;

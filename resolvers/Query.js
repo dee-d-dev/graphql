@@ -8,7 +8,7 @@ exports.Query = {
     if (filter) {
       let { onSale } = filter;
       if (onSale === true) {
-        filteredItems.filter((item) => {
+        filteredItems = filteredItems.filter((item) => {
           return item.onSale;
         });
       }
