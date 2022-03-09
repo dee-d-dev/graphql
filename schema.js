@@ -34,7 +34,7 @@ exports.typeDefs = gql`
   type Review {
     id: ID!
     date: String!
-    title: Stri ng!
+    title: String!
     comment: String!
     rating: Int!
     productId: ID,
