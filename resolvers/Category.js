@@ -1,6 +1,6 @@
 exports.Category = {
   products: ({ id: categoryId }, { filter }, { items }) => {
-    const find_category_product = items.filter((item) => {
+    let find_category_product = items.filter((item) => {
       return item.category_id === categoryId;
     });
 

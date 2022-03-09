@@ -3,12 +3,12 @@ exports.Query = {
     return "Hello World";
   },
   products: (parent, { filter }, { items }) => {
-    let filteredItems = items;
+    // let filteredItems = items;
 
     if (filter) {
       let { onSale } = filter;
       if (onSale === true) {
-        filteredItems = filteredItems.filter((item) => {
+        filteredItems = items.filter((item) => {
           return item.onSale;
         });
       }
