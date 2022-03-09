@@ -2,7 +2,7 @@ exports.Query = {
   hello: () => {
     return "Hello World";
   },
-  products: (parent, { filter, avgRating }, { items, reviews }) => {
+  products: (parent, { filter}, { items, reviews }) => {
     let filteredItems = items;
 
     if (filter) {
