@@ -7,7 +7,7 @@ exports.typeDefs = gql`
     price: Float
     isExpensive: Boolean
     Shoes: [String]
-    products: [Product!]!
+    products(filter: ProductsFilterInput): [Product!]!
     product(id: ID!): Product
     categories: [Category!]!
     category(id: ID!): Category!

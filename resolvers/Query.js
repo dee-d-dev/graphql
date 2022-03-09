@@ -2,8 +2,18 @@ exports.Query = {
   hello: () => {
     return "Hello World";
   },
-  products: (parent, args, { items }) => {
-    return items;
+  products: (parent, { filter }, { items }) => {
+    let filteredItems = items;
+
+    if (filter) {
+      let { onSale } = filter;
+      if (onSale === true) {
+        filteredItems.filter((item) => {
+          return item.onSale;
+        });
+      }
+    }
+    return filteredItems;
   },
   product: (parent, { id }, { items }) => {
     const find_product = items.find((product) => {
