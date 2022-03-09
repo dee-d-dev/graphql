@@ -2,14 +2,25 @@ exports.Query = {
   hello: () => {
     return "Hello World";
   },
-  products: (parent, { filter }, { items }) => {
-    // let filteredItems = items;
+  products: (parent, { filter, avgRating }, { items, reviews }) => {
+    let filteredItems = items;
 
     if (filter) {
-      let { onSale } = filter;
-      if (onSale === true) {
+      let { onSale, avgRating } = filter;
+      if (onSale) {
         filteredItems = items.filter((item) => {
           return item.onSale;
+        });
+      }
+
+      if ([1, 2, 3, 4, 5].includes(avgRating)) {
+        filteredItems = filteredItems.filter((product) => {
+          let sumRating = 0;
+          reviews.forEach((review) => {
+            if (review.productId === product.id) {
+              sumRating += avgRating;
+            }
+          });
         });
       }
     }
