@@ -2,7 +2,7 @@ exports.Query = {
   hello: () => {
     return "Hello World";
   },
-  products: (parent, { filter}, { db }) => {
+  products: (parent, { filter }, { db }) => {
     let filteredItems = db.items;
 
     if (filter) {
@@ -41,7 +41,7 @@ exports.Query = {
   categories: (parent, args, { db }) => {
     return db.categories;
   },
-  category: (parent, { id }, { db}) => {
+  category: (parent, { id }, { db }) => {
     const found = db.categories.find((category) => {
       return category.id === id;
     });
