@@ -2,13 +2,13 @@ exports.Query = {
   hello: () => {
     return "Hello World";
   },
-  products: (parent, { filter}, { items, reviews }) => {
-    let filteredItems = items;
+  products: (parent, { filter}, { db }) => {
+    let filteredItems = db.items;
 
     if (filter) {
       let { onSale, avgRating } = filter;
       if (onSale) {
-        filteredItems = items.filter((item) => {
+        filteredItems = filteredIitems.filter((item) => {
           return item.onSale;
         });
       }
@@ -30,19 +30,19 @@ exports.Query = {
     }
     return filteredItems;
   },
-  product: (parent, { id }, { items }) => {
-    const find_product = items.find((product) => {
+  product: (parent, { id }, { db }) => {
+    const find_product = db.items.find((product) => {
       return product.id === id;
     });
     if (!find_product) return null;
 
     return find_product;
   },
-  categories: (parent, args, { categories }) => {
-    return categories;
+  categories: (parent, args, { db }) => {
+    return db.categories;
   },
-  category: (parent, { id }, { categories }) => {
-    const found = categories.find((category) => {
+  category: (parent, { id }, { db}) => {
+    const found = db.categories.find((category) => {
       return category.id === id;
     });
 

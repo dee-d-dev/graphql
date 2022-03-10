@@ -1,14 +1,15 @@
 const { v4: uuid } = require("uuid");
 exports.Mutation = {
-  addCategory: (parent, { input }, { categories }) => {
+  addCategory: (parent, { input }, { db }) => {
     let { name } = input;
     const newCategory = {
       id: uuid(),
       name,
     };
+    db.categories.push(newCategory);
   },
 
-  addProduct: (parent, { input }, { items }) => {
+  addProduct: (parent, { input }, { db }) => {
     let { id, name, description, quantity, price, image, onSale, category_id } =
       input;
 
@@ -23,15 +24,14 @@ exports.Mutation = {
       category_id,
     };
 
-    items.push(newProduct);
+    db.items.push(newProduct);
     return newProduct;
   },
 
-  addReview: (parent, { input }, { reviews }) => {
+  addReview: (parent, { input }, { db }) => {
     let { date, title, comment, rating, productId } = input;
 
     const newReview = {
-   
       date,
       title,
       comment,
@@ -39,7 +39,7 @@ exports.Mutation = {
       productId,
     };
 
-    reviews.push(newReview);
+    db.reviews.push(newReview);
     return newReview;
   },
 };

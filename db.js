@@ -266,7 +266,7 @@ const reviews = [
     title: "soccer or football",
     comment: "IT'S CALLED FOOTBALL",
     rating: 2,
-    productId: "47bf3941-9c8b-42c0-9c72-7f3985492a5b", 
+    productId: "47bf3941-9c8b-42c0-9c72-7f3985492a5b",
   },
   {
     id: "1e489691-6d19-4438-a6c5-90919eef070e",
@@ -286,4 +286,4 @@ const reviews = [
   },
 ];
 
-module.exports = { items, categories, reviews };
+exports.db = { items, categories, reviews };

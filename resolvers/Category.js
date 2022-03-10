@@ -1,6 +1,6 @@
 exports.Category = {
-  products: ({ id: categoryId }, { filter }, { items }) => {
-    let find_category_product = items.filter((item) => {
+  products: ({ id: categoryId }, { filter }, { db}) => {
+    let find_category_product = db.items.filter((item) => {
       return item.category_id === categoryId;
     });
 
