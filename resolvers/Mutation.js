@@ -26,4 +26,20 @@ exports.Mutation = {
     items.push(newProduct);
     return newProduct;
   },
+
+  addReview: (parent, { input }, { reviews }) => {
+    let { date, title, comment, rating, productId } = input;
+
+    const newReview = {
+   
+      date,
+      title,
+      comment,
+      rating,
+      productId,
+    };
+
+    reviews.push(newReview);
+    return newReview;
+  },
 };
