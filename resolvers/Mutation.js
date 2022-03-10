@@ -1,5 +1,5 @@
 const { v4: uuid } = require("uuid");
-exports.mutation = {
+exports.Mutation = {
   addCategory: (parent, { input }, { categories }) => {
     let { name } = input;
     const newCategory = {
